@@ -1,5 +1,5 @@
 <?php
-  // include "include/book.php";
+  include "include/rooms.php";
   // include "include/category.php";
 ?>
   <!DOCTYPE html>
@@ -137,7 +137,7 @@
                 
                 <br>
                 <br>
-                <div class="table table-responsive">
+                <div class="table-responsive">
                     <table class="table table-hover table-bordered" id="sampleTable">
                     <thead>
                         <tr>
@@ -150,7 +150,31 @@
                         <th>Action</th>
                     </tr>
                     </thead>
-                    
+                    <tbody>
+                    <tr>
+                    <?php
+                      $selectdata = Rooms::find_all();
+                      $countdata = Rooms::count_all();
+                      for($i=1; $i <= $countdata ; $i++) 
+                      { 
+                        $fetchdata = Rooms::fetch_array($selectdata);
+                    ?>
+                      <td><?php echo $i;  ?></td>
+                      <td><?php echo ucfirst($fetchdata['name']);  ?></td>
+                      <td><?php echo ucfirst($fetchdata['duration']);  ?></td>
+                      <td><?php echo number_format($fetchdata['price']);  ?></td>
+                      <td><?php echo ucfirst($fetchdata['total_room']);  ?></td>
+                      <td><?php echo ucfirst($fetchdata['status']);  ?></td>
+                      <td>
+                        <button class="btn btn-primary viewroom" id="<?php echo $fetchdata['id']; ?>" >View </button>
+                        <button class="btn btn-primary editroom" id="<?php echo $fetchdata['id']; ?>" >Edit </button>                        
+                        <button class="btn btn-danger deleteroom"  id="<?php echo $fetchdata['id']; ?>">Delete </button>
+                    </td>
+                    </tr>
+                    <?php
+                      }
+                    ?>
+                  </tbody>
                     </table>
                 </div>
                 
@@ -304,9 +328,7 @@
             </div>
           </div>
       </div>
-
-
-          <!-- Delete worker Modal Start Here-->
+    <!-- Delete worker Modal Start Here-->
             <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="viewclient" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -377,8 +399,27 @@
               var formData = new FormData();
               var room_image = document.getElementById('room_image');
               var file = room_image.files[0];
-              
-              formData.append('image', file);
+                formData.append('image', file); 
+
+
+              var room_name = $('#room_name').val();
+                formData.append('room_name', room_name); 
+
+              var room_price = $('#room_price').val();
+                formData.append('room_price', room_price); 
+
+              var room_duration = $('#room_duration').val();
+                formData.append('room_duration', room_duration); 
+
+              var room_total = $('#room_total').val();
+                formData.append('room_total', room_total); 
+
+              var room_description = $('#room_description').val();
+                formData.append('room_description', room_description);
+
+              var room_image = document.getElementById('room_image').files[0].name;
+                formData.append('room_image', room_image); 
+
               $.ajax({
                   url:'include/process.php',
                   type:'POST',
@@ -386,10 +427,14 @@
                   processData:false,
                   contentType:false,
                   success:function(data){
-                      $('#room_image').val(data);
-                      console.log("uplodaed");
+                    $("#add_modal").modal("hide");
+                    window.location ='rooms.php';
                   }
               })
+         });
+
+         $('#deleteroom').click(function(){
+           console.log("elo");
          })
           
       });
