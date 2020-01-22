@@ -63,35 +63,24 @@ class Admin extends db_object
                 echo $item;
     }
 
-    public static function authenticate($username= "", $password= "")
+    public static function authenticate($email= "", $password= "")
 	{
 		global $database;
-		$hashedPassword = '';
-		$username = $database->escape_val($username);
-		$password = $database->escape_val($password);
+		$email = $database->escape_val($email);
+		$password = md5($database->escape_val($password));
 
-		$sql = "SELECT * FROM " . static::$db_table."
-		WHERE email = '{$username}'
-		LIMIT 1";
-
+		$sql = "SELECT * FROM " . static::$db_table." WHERE email = '{$email}' AND password= '{$password}' LIMIT 1";
         $result = $database->query($sql);
-        while($row = $database->fetch_array($result)){
-           $hashedPassword = $row['password'];
+        if($result){
+            $row = $database->fetch_array($result);
+            return !empty($row) ? $row:false;
+        }else{
+            return false;
         }
-		
-		if($hashedPassword != ''){
-			if(crypt($password, $hashedPassword) == $hashedPassword){
-				$result_array = self::find_by_sql($sql);
-				return !empty($result_array) ? array_shift($result_array) : false;
-			}else{
-				return false;
-			}
-		}
-        
-
     }
     
 } 
+
 
 #echo $database->cryptPass("store23app_cloud");
 ?>

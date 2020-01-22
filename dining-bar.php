@@ -34,7 +34,7 @@ include 'header.php';
 						<div class="desc text-center">
 							<h3><a href="rooms-suites.html">Organic Yoghurt Panna Cotta</a></h3>
 							<p class="price">
-								<span class="currency currency-menu">$</span>
+								<span class="currency currency-menu">N</span>
 								<span class="price-room price-menu">25.00</span>
 							</p>
 							<p><a class="btn btn-primary btn-book">Take an Order</a></p>
@@ -45,7 +45,7 @@ include 'header.php';
 						<div class="desc text-center">
 							<h3><a href="rooms-suites.html">Roast Beef (4 sticks)</a></h3>
 							<p class="price">
-								<span class="currency currency-menu">$</span>
+								<span class="currency currency-menu">N</span>
 								<span class="price-room price-menu">30.00</span>
 							</p>
 							<p><a class="btn btn-primary btn-book">Take an Order</a></p>
@@ -56,7 +56,7 @@ include 'header.php';
 						<div class="desc text-center">
 							<h3><a href="rooms-suites.html">Salted Fried Chicken</a></h3>
 							<p class="price">
-								<span class="currency currency-menu">$</span>
+								<span class="currency currency-menu">N</span>
 								<span class="price-room price-menu">20.00</span>
 							</p>
 							<p><a class="btn btn-primary btn-book">Take an Order</a></p>
@@ -70,7 +70,7 @@ include 'header.php';
 						<div class="desc text-center">
 							<h3><a href="rooms-suites.html">Organic Yoghurt Panna Cotta</a></h3>
 							<p class="price">
-								<span class="currency currency-menu">$</span>
+								<span class="currency currency-menu">N</span>
 								<span class="price-room price-menu">25.00</span>
 							</p>
 							<p><a class="btn btn-primary btn-book">Take an Order</a></p>
@@ -81,7 +81,7 @@ include 'header.php';
 						<div class="desc text-center">
 							<h3><a href="rooms-suites.html">Roast Beef (4 sticks)</a></h3>
 							<p class="price">
-								<span class="currency currency-menu">$</span>
+								<span class="currency currency-menu">N</span>
 								<span class="price-room price-menu">30.00</span>
 							</p>
 							<p><a class="btn btn-primary btn-book">Take an Order</a></p>
@@ -92,7 +92,7 @@ include 'header.php';
 						<div class="desc text-center">
 							<h3><a href="rooms-suites.html">Salted Fried Chicken</a></h3>
 							<p class="price">
-								<span class="currency currency-menu">$</span>
+								<span class="currency currency-menu">N</span>
 								<span class="price-room price-menu">20.00</span>
 							</p>
 							<p><a class="btn btn-primary btn-book">Take an Order</a></p>
@@ -111,7 +111,7 @@ include 'header.php';
 						<div class="desc text-center">
 							<h3><a href="rooms-suites.html">Organic Yoghurt Panna Cotta</a></h3>
 							<p class="price">
-								<span class="currency currency-menu">$</span>
+								<span class="currency currency-menu">N</span>
 								<span class="price-room price-menu">25.00</span>
 							</p>
 							<p><a class="btn btn-primary btn-book">Take an Order</a></p>
@@ -122,7 +122,7 @@ include 'header.php';
 						<div class="desc text-center">
 							<h3><a href="rooms-suites.html">Roast Beef (4 sticks)</a></h3>
 							<p class="price">
-								<span class="currency currency-menu">$</span>
+								<span class="currency currency-menu">N</span>
 								<span class="price-room price-menu">30.00</span>
 							</p>
 							<p><a class="btn btn-primary btn-book">Take an Order</a></p>
@@ -133,7 +133,7 @@ include 'header.php';
 						<div class="desc text-center">
 							<h3><a href="rooms-suites.html">Salted Fried Chicken</a></h3>
 							<p class="price">
-								<span class="currency currency-menu">$</span>
+								<span class="currency currency-menu">N</span>
 								<span class="price-room price-menu">20.00</span>
 							</p>
 							<p><a class="btn btn-primary btn-book">Take An Order</a></p>

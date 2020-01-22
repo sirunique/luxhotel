@@ -65,10 +65,10 @@ class Db_object extends Database
 
     }
 
-    public static function find_by_id2($id)
+    public static function find_by_id($id)
     {
         global $database;
-        $the_result_array = $database->query("SELECT * FROM " . static::$db_table . " WHERE user_id = '$id'");
+        $the_result_array = $database->query("SELECT * FROM " . static::$db_table . " WHERE id = '$id'");
         return $the_result_array;
 
     }
@@ -96,14 +96,14 @@ class Db_object extends Database
     }
 
 
-    public static function find_by_id($id)
-    {
-        global $database;
-        $the_result_array = self::find_by_query("SELECT * FROM " . static::$db_table . " WHERE id = $id LIMIT 1");
-        return !empty($the_result_array) ? array_shift($the_result_array) : false;
+    // public static function find_by_id($id)
+    // {
+    //     global $database;
+    //     $the_result_array = self::find_by_query("SELECT * FROM " . static::$db_table . " WHERE id = $id LIMIT 1");
+    //     return !empty($the_result_array) ? array_shift($the_result_array) : false;
 
 
-    }
+    // }
 
     //for string id's..
     public static function find_by_string_id($column_name = "", $id = "")
@@ -274,15 +274,14 @@ class Db_object extends Database
     public function delete()
     {
         global $database;
-
-
-        $sql = "DELETE FROM  " . static::$db_table;
-        $sql .= "WHERE id=" . $database->escape_string($this->id);
-        $sql .= " LIMIT 1";
-
+        $id = $this->id;
+        $sql = "DELETE FROM ". static::$db_table . " WHERE id= '$id' LIMIT 1";
         $database->query($sql);
-
         return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+
+        // global $database;
+        // $result = $database->query("DELETE FROM ". static::$db_table . " WHERE id = '$id' ");
+        // return (mysqli_affected_rows($database->connection) ==1) ? true : false;
 
 
     }

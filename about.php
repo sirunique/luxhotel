@@ -106,7 +106,7 @@ include 'header.php';
 	<script src="js/bootstrap-datepicker.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
-
+	<script src="js/app.js"></script>
 	</body>
 </html>
 

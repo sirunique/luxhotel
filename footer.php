@@ -2,7 +2,7 @@
 			<div class="container">
 				<div class="row row-pb-md">
 					<div class="col-md-3 colorlib-widget">
-						<h4>Luxehotel</h4>
+						<h4>Tom Hotel And Suites</h4>
 						<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
 						<p>
 							<ul class="colorlib-social-icons">
@@ -13,7 +13,7 @@
 							</ul>
 						</p>
 					</div>
-					<div class="col-md-3 colorlib-widget">
+					<!-- <div class="col-md-3 colorlib-widget">
 						<h4>Quick Links</h4>
 						<p>
 							<ul class="colorlib-footer-links">
@@ -23,7 +23,7 @@
 								<li><a href="#">Beach &amp; Resorts</a></li>
 							</ul>
 						</p>
-					</div>
+					</div> -->
 					<!-- <div class="col-md-3">
 						<h4>Recents Blog Post</h4>
 						<ul class="colorlib-footer-links">
@@ -36,10 +36,9 @@
 					<div class="col-md-3 col-md-push-1">
 						<h4>Contact Information</h4>
 						<ul class="colorlib-footer-links">
-							<li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
-							<li><a href="tel://1234567920">+ 1235 2355 98</a></li>
-							<li><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
-							<li><a href="http://luxehotel.com">luxehotel.com</a></li>
+							<li>7 Tunde Odeyemi Street,Off Igando Road(Behind Vitality Filling Station) <br> Bakare Bus Stop, Ikotun Lagos</li>
+							<li><a href="tel://+2347061974883">+234-706-197-4883</a></li>
+							<li><a href="mailto:reservation@tomhotelandsuites.com">reservation@tomhotelandsuites.com</a></li>
 						</ul>
 					</div>
 				</div>

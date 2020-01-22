@@ -1,8 +1,8 @@
 <?php
 include 'header.php';
-include_once "Admin/include/service.php";
+include_once "Admin/include/gallery.php";
 
-	$service = new Service();
+	$gallery = new Gallery();
 ?>
 		<aside id="colorlib-hero">
 			<div class="flexslider">
@@ -13,8 +13,8 @@ include_once "Admin/include/service.php";
 			   			<div class="row">
 				   			<div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
 				   				<div class="slider-text-inner slider-text-inner2 text-center">
-				   					<h2>Accomodation</h2>
-				   					<h1>Our Services</h1>
+				   					<!-- <h2>Food be like</h2> -->
+				   					<h1>Our Gallery</h1>
 				   				</div>
 				   			</div>
 				   		</div>
@@ -23,32 +23,39 @@ include_once "Admin/include/service.php";
 			  	</ul>
 		  	</div>
 		</aside>
-		<div id="colorlib-amenities">
+		<div id="colorlib-rooms" class="colorlib-light-grey">
 			<div class="container">
 				<div class="row">
-					<div class="amenities-flex">
-						<?php
-							$selectdata = Service::find_all();
-							$countdata = Service::count_all();
-							for ($i=1; $i <= $countdata; $i++) 
-							{ 
-								$fetchdata = Service::fetch_array($selectdata);
-						?>
-							<div class="amenities-img animate-box" style="background-image: url(Admin/images/services/<?php echo $fetchdata['image']?>);"></div>
-							<div class="desc animate-box">
-								<h2><a href="#"><?php echo $fetchdata['name']; ?></a></h2>
-								<!-- <p class="price">
-									<span class="free">Free</span>
-								</p> -->
-								<p><?php echo $fetchdata['description']; ?></p>
-							</div>
-						<?php
-							}
-						?>
+					<div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
+						<span><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span>
+						<h2>Gallery</h2>
 					</div>
 				</div>
+				<div class="row">
+					<?php
+						$selectdata = Gallery::find_all();
+						$countdata = Gallery::count_all();
+						for ($i=1; $i <= $countdata; $i++) 
+						{ 
+							$fetchdata = Gallery::fetch_array($selectdata);
+					?>
+					<div class="col-md-4 room-wrap animate-box">
+						<a href="Admin/images/gallery/<?php echo $fetchdata['image']?>" class="room image-popup-link" style="background-image: url(Admin/images/gallery/<?php echo $fetchdata['image']?>);"></a>
+						<div class="desc text-center">
+							<h3><?php echo $fetchdata['description']; ?></h3>
+							
+						</div>
+					</div>
+					<?php
+						}
+					?>
+				</div>
+
+				
+
 			</div>
 		</div>
+
 		<?php include 'footer.php'; ?>
 	</div>
 
@@ -75,7 +82,7 @@ include_once "Admin/include/service.php";
 	<script src="js/bootstrap-datepicker.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
-	<script src="js/app.js"></script>
+
 	</body>
 </html>
 

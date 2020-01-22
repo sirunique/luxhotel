@@ -1,5 +1,12 @@
 <?php
-include 'header.php';
+	include_once 'header.php';
+	include_once "Admin/include/rooms.php";
+	include_once "Admin/include/encryption.php";
+	include_once "Admin/include/testimonial.php";
+
+	$testmonial = new Testmonial();
+
+	$encrypt = new Encryption();
 ?>
 		<aside id="colorlib-hero">
 			<div class="flexslider">
@@ -10,7 +17,7 @@ include 'header.php';
 			   			<div class="row">
 				   			<div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
 				   				<div class="slider-text-inner text-center">
-				   					<h2>Welcome to the luxehotel</h2>
+				   					<h2>Welcome to Tom Hotel And Suites</h2>
 				   					<h1>A Luxury Hotel</h1>
 										<p><a class="btn btn-primary btn-demo" href="#"></i> View Detail</a> <a class="btn btn-primary btn-learn">Know More</a></p>
 				   				</div>
@@ -25,7 +32,7 @@ include 'header.php';
 				   			<div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
 				   				<div class="slider-text-inner text-center">
 				   					<h2>Discover &amp; Enjoy</h2>
-				   					<h1>Everything you need in luxehotel</h1>
+				   					<h1>Everything you need in Tom Hotel And Suite</h1>
 										<p><a class="btn btn-primary btn-demo" href="#"></i> View Detail</a> <a class="btn btn-primary btn-learn">Know More</a></p>
 				   				</div>
 				   			</div>
@@ -182,114 +189,35 @@ include 'header.php';
 				<div class="row">
 					<div class="col-md-12 animate-box">
 						<div class="owl-carousel owl-carousel2">
-							<div class="item">
-								<a href="images/room-1.jpg" class="room image-popup-link" style="background-image: url(images/room-1.jpg);"></a>
-								<div class="desc text-center">
-									<span class="rate-star"><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span>
-									<h3><a href="rooms-suites.html">Suite</a></h3>
-									<p class="price">
-										<span class="currency">$</span>
-										<span class="price-room">99</span>
-										<span class="per">/ per night</span>
-									</p>
-									<ul>
-										<li><i class="icon-check"></i> Only 10 rooms are available</li>
-										<li><i class="icon-check"></i> Breakfast included</li>
-										<li><i class="icon-check"></i> Price does not include VAT &amp; services fee</li>
-									</ul>
-									<p><a class="btn btn-primary btn-book">Book now!</a></p>
+							<?php
+								$selectdata = Rooms::find_all();
+								$countdata = Rooms::count_all();
+								for($i=1; $i <= $countdata ; $i++) 
+								{ 
+									$fetchdata = Rooms::fetch_array($selectdata);
+							?>
+								<div class="item">
+									<a href="Admin/images/rooms/<?php echo $fetchdata['image']?>" class="room image-popup-link" style="background-image: url(Admin/images/rooms/<?php echo $fetchdata['image']?>);"></a>
+									<div class="desc text-center">
+										<!-- <span class="rate-star"><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> -->
+										<h3><a href="reserve.php?room= <?php echo $encrypt->encode( $fetchdata['id']); ?> && name=<?php echo $fetchdata['name']; ?>"><?php echo $fetchdata['name'] ?></a></h3>
+										<p class="price">
+											<span class="currency">N</span>
+											<span class="price-room"><?php echo number_format($fetchdata['price'])?></span>
+											<span class="per">/ <?php echo $fetchdata['duration']  ?></span>
+										</p>
+										<ul>
+											<li><i class="icon-check"></i> Only 10 rooms are available</li>
+											<li><i class="icon-check"></i> Breakfast included</li>
+											<li><i class="icon-check"></i> Price does not include VAT &amp; services fee</li>
+										</ul>
+										<p><a class="btn btn-primary" href="reserve.php?room= <?php echo $encrypt->encode( $fetchdata['id']); ?> && name=<?php echo $fetchdata['name']; ?>" >Book now!</a></p>
+									</div>
 								</div>
-							</div>
-							<div class="item">
-								<a href="images/room-2.jpg" class="room image-popup-link" style="background-image: url(images/room-2.jpg);"></a>
-								<div class="desc text-center">
-									<span class="rate-star"><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full"></i></span>
-									<h3><a href="rooms-suites.html">Double Room</a></h3>
-									<p class="price">
-										<span class="currency">$</span>
-										<span class="price-room">199</span>
-										<span class="per">/ per night</span>
-									</p>
-									<ul>
-										<li><i class="icon-check"></i> Perfect for traveling couples</li>
-										<li><i class="icon-check"></i> Breakfast included</li>
-										<li><i class="icon-check"></i> Price does not include VAT &amp; services fee</li>
-									</ul>
-									<p><a class="btn btn-primary btn-book">Book now!</a></p>
-								</div>
-							</div>
-							<div class="item">
-								<a href="images/room-3.jpg" class="room image-popup-link" style="background-image: url(images/room-3.jpg);"></a>
-								<div class="desc text-center">
-									<span class="rate-star"><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full"></i></span>
-									<h3><a href="rooms-suites.html">Family Room</a></h3>
-									<p class="price">
-										<span class="currency">$</span>
-										<span class="price-room">249</span>
-										<span class="per">/ per night</span>
-									</p>
-									<ul>
-										<li><i class="icon-check"></i> Two double beds</li>
-										<li><i class="icon-check"></i> Babysitting facilities</li>
-										<li><i class="icon-check"></i> 1 free bed available on request</li>
-									</ul>
-									<p><a class="btn btn-primary btn-book">Book now!</a></p>
-								</div>
-							</div>
-							<div class="item">
-								<a href="images/room-4.jpg" class="room image-popup-link" style="background-image: url(images/room-4.jpg);"></a>
-								<div class="desc text-center">
-									<span class="rate-star"><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full"></i></span>
-									<h3><a href="rooms-suites.html">Classic Double Room</a></h3>
-									<p class="price">
-										<span class="currency">$</span>
-										<span class="price-room">150</span>
-										<span class="per">/ per night</span>
-									</p>
-									<ul>
-										<li><i class="icon-check"></i> Only 10 rooms are available</li>
-										<li><i class="icon-check"></i> Breakfast included</li>
-										<li><i class="icon-check"></i> Price does not include VAT &amp; services fee</li>
-									</ul>
-									<p><a class="btn btn-primary btn-book">Book now!</a></p>
-								</div>
-							</div>
-							<div class="item">
-								<a href="images/room-5.jpg" class="room image-popup-link" style="background-image: url(images/room-5.jpg);"></a>
-								<div class="desc text-center">
-									<span class="rate-star"><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full"></i></span>
-									<h3><a href="rooms-suites.html">Superior Double Room</a></h3>
-									<p class="price">
-										<span class="currency">$</span>
-										<span class="price-room">200</span>
-										<span class="per">/ per night</span>
-									</p>
-									<ul>
-										<li><i class="icon-check"></i> Perfect for traveling couples</li>
-										<li><i class="icon-check"></i> Breakfast included</li>
-										<li><i class="icon-check"></i> Price does not include VAT &amp; services fee</li>
-									</ul>
-									<p><a class="btn btn-primary btn-book">Book now!</a></p>
-								</div>
-							</div>
-							<div class="item">
-								<a href="images/room-6.jpg" class="room image-popup-link" style="background-image: url(images/room-6.jpg);"></a>
-								<div class="desc text-center">
-									<span class="rate-star"><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full"></i></span>
-									<h3><a href="rooms-suites.html">Superior Family Room</a></h3>
-									<p class="price">
-										<span class="currency"><small>$</small></span>
-										<span class="price-room">299</span>
-										<span class="per">/ per night</span>
-									</p>
-									<ul>
-										<li><i class="icon-check"></i> Perfect for traveling couples</li>
-										<li><i class="icon-check"></i> Breakfast included</li>
-										<li><i class="icon-check"></i> Price does not include VAT &amp; services fee</li>
-									</ul>
-									<p><a class="btn btn-primary btn-book">Book now!</a></p>
-								</div>
-							</div>
+							<?php
+								}
+							?>
+
 						</div>
 					</div>
 					<div class="col-md-12 text-center animate-box">
@@ -449,49 +377,46 @@ include 'header.php';
 	      </div>
 		</div>
 
-		<div id="colorlib-testimony" class="colorlib-light-grey">
+
+		<div id="colorlib-rooms" class="colorlib-light-grey">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
-						<span><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span>
+						<span><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span>
 						<h2>Our Satisfied Guests says</h2>
 						<p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
 					</div>
 				</div>
 				<div class="row">
-				<div class="col-md-4 animate-box">
-					<div class="testimony text-center">
-						<span class="img-user" style="background-image: url(images/person2.jpg);"></span>
-						<span class="user">Brian Doe</span>
-						<small>Satisfied Customer</small>
-						<blockquote>
-							<p></i> Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-						</blockquote>
+					<div class="col-md-12 animate-box">
+						<div class="owl-carousel owl-carousel2">
+							<?php
+								$selectdata = Testmonial::find_all();
+								$countdata = Testmonial::count_all();
+								for($i=1; $i <= $countdata ; $i++) 
+								{ 
+									$fetchdata = Testmonial::fetch_array($selectdata);
+							?>
+								<div class="item">
+									<a href="Admin/images/testimonials/<?php echo $fetchdata['image']?>" class="room image-popup-link img-rounded" style="background-image: url(Admin/images/testimonials/<?php echo $fetchdata['image']?>); border-radius: 6px; "></a>
+									<div class="desc text-center">
+										<h3><?php echo $fetchdata['name'] ?></h3>
+										<blockquote>
+											<p> <?php echo $fetchdata['description'] ?></p>
+										</blockquote>
+										
+									</div>
+								</div>
+							<?php
+								}
+							?>
+
+						</div>
 					</div>
 				</div>
-				<div class="col-md-4 animate-box">
-					<div class="testimony text-center">
-						<span class="img-user" style="background-image: url(images/person1.jpg);"></span>
-						<span class="user">Nathalie Miller</span>
-						<small>Satisfied Customer</small>
-						<blockquote>
-							<p></i> Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-						</blockquote>
-					</div>
-				</div>
-				<div class="col-md-4 animate-box">
-					<div class="testimony text-center">
-						<span class="img-user" style="background-image: url(images/person3.jpg);"></span>
-						<span class="user">Shara Jones</span>
-						<small>Satisfied Customer</small>
-						<blockquote>
-							<p></i> Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-						</blockquote>
-					</div>
-				</div>
-			</div>
 			</div>
 		</div>
+
 
 	
 		<div id="colorlib-subscribe" style="background-image: url(images/img_bg_2.jpg);">
@@ -502,11 +427,11 @@ include 'header.php';
 						<span><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span>
 						<h2>Sign Up for a Newsletter</h2>
 						<p>Get A 50% Discounts in every Rooms, Book now!</p>
-						<form class="form-inline qbstp-header-subscribe">
+						<form method='post' action='Admin/include/process.php?newsletter' class="form-inline qbstp-header-subscribe">
 							<div class="row">
 								<div class="col-md-12 col-md-offset-0">
 									<div class="form-group">
-										<input type="text" class="form-control" id="email" placeholder="Enter your email">
+										<input type="text" class="form-control" id="email" name="email" placeholder="Enter your email">
 										<button type="submit" class="btn btn-primary">Subscribe</button>
 									</div>
 								</div>
@@ -542,7 +467,7 @@ include 'header.php';
 	<script src="js/bootstrap-datepicker.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
+	<script src="js/app.js"></script>
 
-	</body>
 </html>
 

@@ -3,7 +3,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Luxehotel Template</title>
+	<title>Tom Hotel And Suites</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -55,6 +55,17 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
+	<style>
+	.fixed{
+		position: fixed;
+		top: 0;
+		left: 0;
+		width:100%;
+		z-index: 6;
+		background: #fff;
+	}
+	</style>
+
 	</head>
 	<body>
 		
@@ -69,7 +80,8 @@
 							<!-- <p class="site">www.yoursitehere.com</p> -->
 						</div>
 						<div class="col-xs-8 text-right">
-							<p class="num">Call: +01-123-456</p>
+							<p class="num">Call: +234-706-197-4883</p>
+							 || <p class='num'>email: reservation@tomhotelandsuites.com</p>
 							<ul class="colorlib-social">
 								<li><a href="#"><i class="icon-twitter"></i></a></li>
 								<li><a href="#"><i class="icon-facebook"></i></a></li>
@@ -80,25 +92,30 @@
 					</div>
 				</div>
 			</div>
-			<div class="top-menu">
+			<div class="top-menu sticky">
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-2">
-							<div id="colorlib-logo"><a href="index.php">Luxehotel</a></div>
+							<div id="colorlib-logo">
+								<a href="index.php">
+									<img src="images/tom hotel logo crop.jpeg" class='img img-responsive' alt="Logo" srcset="">
+								</a>
+							</div>
 						</div>
 						<div class="col-xs-10 text-right menu-1">
 							<ul>
 								<li class="has-dropdown">
 									<a href="rooms-suites.php">Rooms</a>
-									<ul class="dropdown">
+									<!-- <ul class="dropdown">
 										<li><a href="#">Web Design</a></li>
 										<li><a href="#">eCommerce</a></li>
 										<li><a href="#">Branding</a></li>
 										<li><a href="#">API</a></li>
-									</ul>
+									</ul> -->
 								</li>
 								<li><a href="dining-bar.php">Dining &amp; Bar</a></li>
-								<li><a href="aminities.php">Aminities</a></li>
+								<li><a href="aminities.php">Services</a></li>
+								<li><a href="gallery.php">Gallery</a></li>
 								<li><a href="about.php">About</a></li>
 								<li><a href="contact.php">Contact</a></li>
 							</ul>
